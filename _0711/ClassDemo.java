@@ -1,10 +1,12 @@
 public class ClassDemo {
     public static void main(String... args) {
         // 实例化测试
-        Person person1 = new Person();
+        Person p1 = new Person();
+        p1.setName("张三");
+        p1.setAge(18);
+        p1.setSex("女");
 
-        System.out.println("Hello");
-        System.out.println(person1);
+        System.out.println(p1);
 
     }
 }
@@ -38,6 +40,13 @@ class Person {
 
     /** 排泄 */
     public void out() {}
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("我的名字叫："+this.name)
+            .append("\n今年"+this.age+"岁")
+            .append("\n我是一个"+this.sex+"生哦！").toString();
+    }
 
     /**
      * @param name the name to set
