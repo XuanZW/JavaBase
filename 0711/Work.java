@@ -1,5 +1,7 @@
+import java.util.*;
+
 /**
- * µ±Íí×÷Òµ
+ * å½“æ™šä½œä¸š
  * @author CN
  * @Date 2018-07-11 20:23
  */
@@ -13,10 +15,12 @@ public class Work {
         pringReverseTriangle(5);
 
         System.out.println(fib(15));
+        
+        printOddAndEven(100);
     }
 
     /**
-     * Õý¶ÔµÈÈý½ÇÐÎ
+     * æ­£ç­‰è¾¹ä¸‰è§’å½¢
      */
     public static void pringTriangle(int height) {
         for(int i=1; i<=height; i++) {
@@ -29,7 +33,7 @@ public class Work {
     }
 
     /**
-     * µ¹Á¢¶ÔµÈÈý½ÇÐÎ
+     * å€’ç­‰è¾¹ä¸‰è§’å½¢
      */
     public static void pringReverseTriangle(int height) {
         for(int i=1; i<=height; i++) {
@@ -42,7 +46,30 @@ public class Work {
     }
 
     /**
-     * Çó½âì³²¨ÄÇÆõÊýÁÐ
+     * è¾“å‡ºå¥‡å¶æ•°
+     */
+    public static void printOddAndEven(int num) {
+        List<Integer> odd = new LinkedList<Integer>();
+        List<Integer> even = new LinkedList<Integer>();
+        for(int i=0; i<=num; i++) {
+            if(i%2==0)
+                even.add(i);
+            else
+                odd.add(i);
+        }
+        Iterator it = odd.iterator();
+        System.out.println("å¥‡æ•°ï¼š");
+        while(it.hasNext())
+            System.out.print(it.next()+" ");
+
+        it = even.iterator();
+        System.out.println("\nå¶æ•°ï¼š");
+        while(it.hasNext())
+            System.out.print(it.next()+" ");
+    }
+
+    /**
+     * æ–æ³¢é‚£å¥‘æ•°åˆ—
      */
     public static int fib(int n) {
         if(n==1 || n==2)
