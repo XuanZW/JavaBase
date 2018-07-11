@@ -13,7 +13,7 @@ public class FuncDemo {
     }
 
     /**
-     * Çó½âì³²¨ÄÇÆõÊıÁĞ
+     * æ±‚è§£æ–æ³¢é‚£å¥‘æ•°åˆ—
      */
     public static int fib(int n) {
         if(n==1 || n==2)
@@ -22,7 +22,7 @@ public class FuncDemo {
     }
 
     /**
-     * ÀÛ¼Ó
+     * ç´¯åŠ 
      */
     public static int add(int num) {
         if(num == 1)
@@ -31,7 +31,7 @@ public class FuncDemo {
     }
 
     /**
-     * ½×³Ë
+     * é˜¶ä¹˜
      */
     public static int jiecheng(int num) {
         if(num==2)
@@ -40,16 +40,30 @@ public class FuncDemo {
     }
 
     /**
-     * º¯ÊıÖØÔØ-ÕûÊıÏà¼Ó
+     * å‡½æ•°é‡è½½-æ•´æ•°ç›¸åŠ 
      */
     public static int add(int a, int b) {
         return a+b;
     }
 
     /**
-     * º¯ÊıÖØÔØ-¸¡µãÊıÏà¼Ó
+     * å‡½æ•°é‡è½½-æµ®ç‚¹æ•°ç›¸åŠ 
      */
     public static double add(double a, double b) {
         return a+b;
+    }
+
+    /**
+     * è¾“å‡ºä¸‰è§’å½¢
+     */
+    public static void printSanJiaoXing() {
+        int height = Integer.parseInt(args[0]);
+        for(int i=1; i<=height; i++) {
+            for(int j=0; j<(height-i); j++)
+                System.out.print(" ");
+            for(int k=0; k<i*2-1; k++)
+                System.out.print("*");
+            System.out.println();
+        }
     }
 }

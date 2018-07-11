@@ -121,7 +121,7 @@ switch(s) {
         // all case is not satified to s
 }
 ```
-__注意：__ `s`为基本数据类型，在JDK7后支持String
+__注意：__ `s`支持的类型有: `byte short int char String enum`
 
 #### 1.4.5 while循环语句
 ```java
