@@ -175,18 +175,49 @@ res = a+b;
 ```
 #### 1.5.3 获取字符串信息
 #### 1.5.4 常用的字符串操作
-* `length()` 获取字符串长度
-* `charAt()` 
-* `substring()`
-* `startWith()`
+* `length 
+* `charAt` 
+* `substring`
+* `getChars, getBytes, toCharArray`
+* `equals, equalsIgnoreCase`
+* `compareTo`
+* `contains`
+* `reginMatcher`
+* `startsWith, endsWith`
+* `indexOf, lastIndexOf`
+* `concat`
+* `replace`
+* `toLowerCase, toUpperCase`
+* `trim`
+* `valueOf`
+* `intern`
 
 #### 1.5.5 格式化字符串
-`String.format("带格式化标记的字符串", Object[])`
-* `%d` 整数
-* `%4.1f` 浮点数
-* `%s` 字符串
+* 方式:
+    * `String.format("带格式修饰符的字符串", Object...)`
+    * `(new Formater()).format("带格式修饰符的字符串", Object...)`
+    * `System.out.printf()`
+* 类型转换符
+    * `%d` 整数（十进制）
+    * `%f` 浮点数（十进制）
+    * `%s` 字符串
+    * `%b` 布尔值
+    * `%c` Unicode值
+    * `%e` 浮点数（科学计算） 
+    * `%o` 整数（八进制）
+    * `%x` 整数（十六进制）
+    * `%h` 散列码（十六进制）
+* 格式化说明符 `%[argument_index$][flags][width][.precision]conversion`
+    * `width` 控制一个域的最小尺寸
+    * `flags` 默认右对齐，使用`-`标志改为左对齐
+    * `precision` 不同数据类型时，其意义也不同 
+        * `String` 输出字符的最大数量
+        * `浮点数` 小数点后的位数（默认6位），多舍少补0
+        * `整数` 无法应用，抛异常
 
 #### 1.5.6 使用正则表达式
+
+
 #### 1.5.7 字符串生成器
 * `StringBuilder`
 * `StringBuffer`
