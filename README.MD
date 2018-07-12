@@ -175,7 +175,7 @@ res = a+b;
 ```
 #### 1.5.3 获取字符串信息
 #### 1.5.4 常用的字符串操作
-* `length 
+* `length`
 * `charAt` 
 * `substring`
 * `getChars, getBytes, toCharArray`

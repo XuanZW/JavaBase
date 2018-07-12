@@ -1,6 +1,13 @@
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
+
 
 public class D0712 {
 
@@ -28,6 +35,52 @@ public class D0712 {
         // String[] strs = {"8573@qq.com", "s_cns--2ds31@ww.ad.dadawsd.da", "qqqqq@qda.qw.sa.com", "³ÌÄþ@sd.aadw.aq1.ac"};
         // for(String str: strs)
         //     System.out.println(str+": "+isEmail(str));
+        
+        // List<A> list = new ArrayList<A>();
+        // Class<A> cc = A.class;
+        // try {
+        //     list.add(cc.newInstance());
+        // } catch(InstantiationException|IllegalAccessException e) {}
+        // System.out.println(list);
+
+        Object a = new B();
+        System.out.println("--------------------");
+        // System.out.println(a.getClass().getName());
+        // System.out.println(a instanceof B);
+        // System.out.println(a.getClass().isInstance(B.class));
+        // System.out.println(a.getClass().equals(B.class));
+        // System.out.println(a.getClass() == B.class);
+        
+        // for(Method method: a.getClass().getMethods())
+        //     System.out.println(method);
+        // try {
+        //     Method method = A.class.getMethod("getValue");
+        //     Object obj = A.class.newInstance();
+        //     System.out.println(method.invoke(obj));
+        // } catch(InstantiationException|IllegalAccessException e) {
+        //     e.printStackTrace();
+        // } catch(NoSuchMethodException|InvocationTargetException e) {
+        //     e.printStackTrace();
+        // }
+        // System.out.println("--------------------");
+        for(Field f: A.class.getDeclaredFields()) {
+            System.out.println(f);
+        }
+        // System.out.println("--------------------");
+        // for(Constructor c: A.class.getConstructors()) {
+        //     System.out.println(c);
+        // }
+        // System.out.println("--------------------");
+        // try {
+        //     Object obj = A.class.newInstance();
+        //     Field f = A.class.getDeclaredField("value");
+        //     System.out.println(f);
+        //     f.setAccessible(true);
+        //     f.set(obj, 10);
+        //     System.out.println(obj);
+        // } catch(InstantiationException|IllegalAccessException|NoSuchFieldException e) {
+        //     e.printStackTrace();
+        // }
         
     }
 
@@ -63,5 +116,40 @@ public class D0712 {
      */
     public static boolean isEmail(CharSequence email) {
         return Pattern.matches(EMAIL_PATTERN_1, email) || Pattern.matches(EMAIL_PATTERN_2, email);
+    }
+}
+
+class A {
+    static {
+        // System.out.println("A is initializing...");
+    }
+    private int value;
+
+    public A() {
+        // System.out.println("AAAAAAAAAAAAA");
+    }
+    public A(int value) {
+        this.value = value;
+    }
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+    @Override
+    public String toString() {
+        return "QAQ1 -> "+this.value;
+    }
+}
+class B extends A {
+    static {
+        System.out.println("B is initializing...");
     }
 }
