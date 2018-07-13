@@ -1,4 +1,4 @@
-import java.lang.reflect.Constructor;
+ï»¿import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,14 +12,14 @@ import java.util.regex.Pattern;
 public class D0712 {
 
     public static void main(String[] args) {
-        // ×Ö·û´®¸ñÊ½»¯
+        // å­—ç¬¦ä¸²æ ¼å¼åŒ–
         // int a = 8;
         // System.out.println(new Formatter().format("%o", a));
 
-        // ÕıÔò±í´ïÊ½
+        // æ­£åˆ™è¡¨è¾¾å¼
         // System.out.println("1234".matches("-?\\d"));
         
-        // ²âÊÔÊÖ»úºÅ
+        // æµ‹è¯•æ‰‹æœºå·
         // Random rand = new Random();
         // StringBuilder sb = null;
         // int[] arrs = {134,135,136,137,138,139,147,148,150,151,152,157,158,159,172,178,182,183,184,187,188,198,130,131,132,145,146,155,156,166,171,175,176,185,186,133,149,153,173,174,177,180,181,189,199,170};
@@ -31,8 +31,8 @@ public class D0712 {
         //     System.out.println(sb.toString()+": "+isMobile(sb.toString()));
         // }
 
-        // ²âÊÔÓÊÏä
-        // String[] strs = {"8573@qq.com", "s_cns--2ds31@ww.ad.dadawsd.da", "qqqqq@qda.qw.sa.com", "³ÌÄş@sd.aadw.aq1.ac"};
+        // æµ‹è¯•é‚®ç®±
+        // String[] strs = {"8573@qq.com", "s_cns--2ds31@ww.ad.dadawsd.da", "qqqqq@qda.qw.sa.com", "ç¨‹å®@sd.aadw.aq1.ac"};
         // for(String str: strs)
         //     System.out.println(str+": "+isEmail(str));
         
@@ -85,34 +85,34 @@ public class D0712 {
     }
 
     /**
-     * ÒÆ¶¯£º134¡¢135¡¢136¡¢137¡¢138¡¢139¡¢147¡¢148¡¢150¡¢151¡¢152¡¢157¡¢158¡¢
-     *     159¡¢172¡¢178¡¢182¡¢183¡¢184¡¢187¡¢188¡¢198£¬
-     * ÁªÍ¨£º130¡¢131¡¢132¡¢145¡¢146¡¢155¡¢156¡¢166¡¢171¡¢175¡¢176¡¢185¡¢186£¬
-     * µçĞÅ£º133¡¢149¡¢153¡¢173¡¢174¡¢177¡¢180¡¢181¡¢189¡¢199£¬
-     * È«ÇòĞÇ£º1349£¬
-     * ĞéÄâÔËÓªÉÌ£º170
+     * ç§»åŠ¨ï¼š134ã€135ã€136ã€137ã€138ã€139ã€147ã€148ã€150ã€151ã€152ã€157ã€158ã€
+     *     159ã€172ã€178ã€182ã€183ã€184ã€187ã€188ã€198ï¼Œ
+     * è”é€šï¼š130ã€131ã€132ã€145ã€146ã€155ã€156ã€166ã€171ã€175ã€176ã€185ã€186ï¼Œ
+     * ç”µä¿¡ï¼š133ã€149ã€153ã€173ã€174ã€177ã€180ã€181ã€189ã€199ï¼Œ
+     * å…¨çƒæ˜Ÿï¼š1349ï¼Œ
+     * è™šæ‹Ÿè¿è¥å•†ï¼š170
      */
     // 3-(\\d) 4-(5-9) 5(^4) 6(6) 7(^9) 8(\\d) 9([8,9])
     private static final String PHONE_PATTERN = "^1((3\\d)|(4[5-9])|(5[^4])|(66)|(7[^9])|(8\\d)|(9[8,9]))\\d{8}$";
     // private static final String PHONE_PATTERN = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$";
     /**
-     * Ğ£ÑéÊÇ·ñÊÇÊÖ»úºÅ
+     * æ ¡éªŒæ˜¯å¦æ˜¯æ‰‹æœºå·
      */
     public static boolean isMobile(CharSequence phone) {
         return Pattern.matches(PHONE_PATTERN, phone);
     }
 
     /**
-     * Ãû³ÆºÍÓòÃûÖ»ÔÊĞíÓ¢ÎÄ×ÖÄ¸¡¢Êı×Ö¡¢ÏÂ»®Ïß¡¢ÒÔ¼°ÖĞ»®Ïß×é³É
+     * åç§°å’ŒåŸŸååªå…è®¸è‹±æ–‡å­—æ¯ã€æ•°å­—ã€ä¸‹åˆ’çº¿ã€ä»¥åŠä¸­åˆ’çº¿ç»„æˆ
      */
     private static final String EMAIL_PATTERN_1 = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
     /**
-     * Ãû³ÆÔÊĞíºº×Ö¡¢×ÖÄ¸¡¢Êı×Ö£¬ÓòÃûÖ»ÔÊĞíÓ¢ÎÄÓòÃû
+     * åç§°å…è®¸æ±‰å­—ã€å­—æ¯ã€æ•°å­—ï¼ŒåŸŸååªå…è®¸è‹±æ–‡åŸŸå
      */
     private static final String EMAIL_PATTERN_2 = "^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
 
     /**
-     * Ğ£ÑéÊÇ·ñÊÇÓÊÏä
+     * æ ¡éªŒæ˜¯å¦æ˜¯é‚®ç®±
      */
     public static boolean isEmail(CharSequence email) {
         return Pattern.matches(EMAIL_PATTERN_1, email) || Pattern.matches(EMAIL_PATTERN_2, email);
