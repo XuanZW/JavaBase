@@ -12,13 +12,13 @@ public class ArrayDemo {
         // int[] arr = {1, 2, 3, 4, 5, 6, 6, 20, 21, 34, 77, 99, 66, 33};
         
         
-        // System.out.print("Í³¼Æ½á¹û(×î´óÖµ¡¢×îĞ¡Öµ¡¢Æ½¾ùÖµ¡¢×ÜºÍ): ");
+        // System.out.print("ç»Ÿè®¡ç»“æœ(æœ€å¤§å€¼ã€æœ€å°å€¼ã€å¹³å‡å€¼ã€æ€»å’Œ): ");
         // printArr(statistics(arr));
 
-        // System.out.print("ÅÅĞòÇ°: ");
+        // System.out.print("æ’åºå‰: ");
         // printArr(arr);
         // bubleSort(arr);
-        // System.out.print("ÅÅĞòºó: ");
+        // System.out.print("æ’åºå: ");
         // printArr(arr);   
         
         // System.out.println(reverseString("hello"));
@@ -46,7 +46,7 @@ public class ArrayDemo {
 
     
     /**
-     * Í³¼ÆÊı×éµÄ×î´óÖµ¡¢×îĞ¡Öµ¡¢Æ½¾ùÖµ¡¢×ÜºÍ
+     * ç»Ÿè®¡æ•°ç»„çš„æœ€å¤§å€¼ã€æœ€å°å€¼ã€å¹³å‡å€¼ã€æ€»å’Œ
      */
     public static int[] statistics(int[] arr) {
         int max = Integer.MIN_VALUE;
@@ -67,7 +67,7 @@ public class ArrayDemo {
     }
 
     /**
-     * Êä³öÊı×é
+     * è¾“å‡ºæ•°ç»„
      */
     public static void printArr(int[] arr) {
         for(int i: arr)
@@ -76,7 +76,7 @@ public class ArrayDemo {
     }
 
     /**
-     * Ã°ÅİÅÅĞò
+     * å†’æ³¡æ’åº
      */
     public static void bubleSort(int[] arr) {
         int temp;
@@ -92,10 +92,10 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ1£º¸ø¶¨Ò»¸öÒÑ°´ÕÕÉıĞòÅÅÁĞ µÄÓĞĞòÊı×é£¬ÕÒµ½Á½¸öÊıÊ¹µÃËüÃÇÏà¼ÓÖ®ºÍµÈÓÚÄ¿±êÊı£¬·µ»ØË÷Òı
+     * ä½œä¸š1ï¼šç»™å®šä¸€ä¸ªå·²æŒ‰ç…§å‡åºæ’åˆ— çš„æœ‰åºæ•°ç»„ï¼Œæ‰¾åˆ°ä¸¤ä¸ªæ•°ä½¿å¾—å®ƒä»¬ç›¸åŠ ä¹‹å’Œç­‰äºç›®æ ‡æ•°ï¼Œè¿”å›ç´¢å¼•
      */
     public static void getTwoNumSum(int[] arr, int sum) {
-        // 1.Á½´ÎÑ­»·
+        // 1.ä¸¤æ¬¡å¾ªç¯
         // for(int i=0; i<arr.length; i++) {
         //     for(int j=i+1; j<arr.length; j++) {
         //         if(arr[i]+arr[j]==sum) {
@@ -104,7 +104,7 @@ public class ArrayDemo {
         //         }
         //     }
         // }
-        // 2.Ò»´ÎÑ­»·
+        // 2.ä¸€æ¬¡å¾ªç¯
         int left=0, right=arr.length-1;
         int tmp = 0;
         while(left<right) {
@@ -121,10 +121,10 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ2£º¸ø¶¨Ò»¸öÊı×é nums£¬±àĞ´Ò»¸öº¯Êı½«ËùÓĞ 0 ÒÆ¶¯µ½Êı×éµÄÄ©Î²£¬Í¬Ê±±£³Ö·ÇÁãÔªËØµÄÏà¶ÔË³Ğò
+     * ä½œä¸š2ï¼šç»™å®šä¸€ä¸ªæ•°ç»„ numsï¼Œç¼–å†™ä¸€ä¸ªå‡½æ•°å°†æ‰€æœ‰ 0 ç§»åŠ¨åˆ°æ•°ç»„çš„æœ«å°¾ï¼ŒåŒæ—¶ä¿æŒéé›¶å…ƒç´ çš„ç›¸å¯¹é¡ºåº
      */
     public static void moveZero(int[] arr) {
-        // 1. Ã°ÅİµÄ·½Ê½
+        // 1. å†’æ³¡çš„æ–¹å¼
         // int tmp;
         // int pos = arr.length;
         // for(int i=0; i<arr.length; i++) {
@@ -138,7 +138,7 @@ public class ArrayDemo {
         //         }
         //     }
         // }
-        // 2. ²åÈë·½Ê½
+        // 2. æ’å…¥æ–¹å¼
         int right = arr.length-1;
         for(int i=0; i<right; i++) {
             if(arr[i] == 0) {
@@ -154,7 +154,7 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ3£º·­×ª×Ö·û´®
+     * ä½œä¸š3ï¼šç¿»è½¬å­—ç¬¦ä¸²
      */
     public static String reverseString(String str) {
         char[] chs = str.toCharArray();
@@ -169,7 +169,7 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ4£º·­×ªµ¥´Ê
+     * ä½œä¸š4ï¼šç¿»è½¬å•è¯
      */
     public static String reverseWord(String word) {
         String[] arr = word.trim().split("\\s+");
@@ -186,9 +186,9 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ5£º
-     * ¸ø¶¨Ò»¸ö°üº¬ n ¸öÕûÊıµÄÊı×é nums£¬ÅĞ¶Ï nums ÖĞÊÇ·ñ´æÔÚÈı¸öÔªËØ a£¬b£¬c £¬
-     * Ê¹µÃ a + b + c = 0? ÕÒ³öËùÓĞÂú×ãÌõ¼şÇÒ²»ÖØ¸´µÄÈıÔª×é¡£
+     * ä½œä¸š5ï¼š
+     * ç»™å®šä¸€ä¸ªåŒ…å« n ä¸ªæ•´æ•°çš„æ•°ç»„ numsï¼Œåˆ¤æ–­ nums ä¸­æ˜¯å¦å­˜åœ¨ä¸‰ä¸ªå…ƒç´  aï¼Œbï¼Œc ï¼Œ
+     * ä½¿å¾— a + b + c = 0? æ‰¾å‡ºæ‰€æœ‰æ»¡è¶³æ¡ä»¶ä¸”ä¸é‡å¤çš„ä¸‰å…ƒç»„ã€‚
      */
     public static int[][] threeNumSumIsZero(int[] arr) {
         Set<Tuple> set = new HashSet<>();
@@ -216,7 +216,7 @@ public class ArrayDemo {
     }
 
     /**
-     * ×÷Òµ6£º½«Á½¸öÓĞĞòÊı×éºÏ²¢ÎªÒ»¸öÓĞĞòÊı×é£¬Ê¹ÓÃË«Ö¸Õë
+     * ä½œä¸š6ï¼šå°†ä¸¤ä¸ªæœ‰åºæ•°ç»„åˆå¹¶ä¸ºä¸€ä¸ªæœ‰åºæ•°ç»„ï¼Œä½¿ç”¨åŒæŒ‡é’ˆ
      */
     public static int[] concatArray(int[] arr1, int[] arr2) {
         int[] ret = new int[arr1.length+arr2.length];

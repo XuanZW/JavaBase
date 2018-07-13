@@ -1,7 +1,9 @@
 import java.util.*;
+import java.util.regex.Pattern;
+import java.io.*;
 
 public class D0713 {
-    public static void main(String... args) {
+    public static void main(String... args) throws IOException {
         /** Set试验 */
         // Set<Node> set = null;
         // 保证升序排序
@@ -119,6 +121,44 @@ public class D0713 {
         //         break;
         //     }
         // }
+
+
+        /** I/O */
+        // Test File.class
+        // 文件名过滤器
+        // class DirFilter implements FilenameFilter {
+        //     @Override
+        //     public boolean accept(File dir, String name) {
+        //         return Pattern.matches("^[A-Za-z][a-zA-Z0-9]+.java$", name);
+        //     }
+        // }
+        // File file = new File(".");
+        // List<File> dirs = new ArrayList<File>(file.list().length);
+        // List<File> files = new ArrayList<File>(file.list().length);
+        // for(File f: file.listFiles(new DirFilter())) {
+        //     if(f.isFile())
+        //         files.add(f);
+        //     else if(f.isDirectory())
+        //         dirs.add(f);
+        // }        
+        // for(File f: dirs)
+        //     System.out.println("+"+f.getName());
+        // for(File f: files)
+        //     System.out.println("-"+f.getName());
+
+        /**
+         * 缓冲输入文件
+         * 打开一个文件用于字符输入，可以使用 FileInputReader
+         * 提高速度使用 BufferReader
+         */
+        // BufferedReader bfr = new BufferedReader(new FileReader(new File(".")));
+        // bfr.readLine();
+
+        /**
+         * 缓冲输出文件
+         */
+        // BufferedWriter bfw = new BufferedWriter(new FileWriter(new File(".")));
+        // bfw.write("this is output content...");
 
         
     }
