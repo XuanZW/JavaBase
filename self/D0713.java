@@ -4,13 +4,13 @@ import java.io.*;
 
 public class D0713 {
     public static void main(String... args) throws IOException {
-        /** SetÊÔÑé */
+        /** Setè¯•éªŒ */
         // Set<Node> set = null;
-        // ±£Ö¤ÉıĞòÅÅĞò
+        // ä¿è¯å‡åºæ’åº
         // set = new TreeSet<Node>();
-        // ÂÒĞò£¨¸ù¾İ¹şÏ£Öµ´æ´¢£©
+        // ä¹±åºï¼ˆæ ¹æ®å“ˆå¸Œå€¼å­˜å‚¨ï¼‰
         // set = new HashSet<Node>();
-        // ±£Ö¤²åÈëË³Ğò
+        // ä¿è¯æ’å…¥é¡ºåº
         // set = new LinkedHashSet<Node>();
         // set.add(new Node(2));
         // set.add(new Node(7));
@@ -19,7 +19,7 @@ public class D0713 {
         // set.add(new Node(1));
         // System.out.println(set);
 
-        /** ÓÅÏÈ¶ÓÁĞ */
+        /** ä¼˜å…ˆé˜Ÿåˆ— */
         // Queue<Node> q = new PriorityQueue<Node>();
         // q.addAll(Arrays.asList(new Node(8), new Node(4), new Node(12), new Node(3), new Node(5), new Node(2)));
         // System.out.printsln(q);
@@ -30,23 +30,23 @@ public class D0713 {
         // q.add(new Node(4));
         // q.add(new Node(5));
         // q.add(new Node(2));
-        // Ê¹ÓÃÓÅÏÈ¶ÓÁĞµÄµü´úË³Ğò£¨²»Âú×ãÅÅĞòË³Ğò£©ºÍÒÀ´Î³ö¶ÓµÄË³Ğò²»Í¬
+        // ä½¿ç”¨ä¼˜å…ˆé˜Ÿåˆ—çš„è¿­ä»£é¡ºåºï¼ˆä¸æ»¡è¶³æ’åºé¡ºåºï¼‰å’Œä¾æ¬¡å‡ºé˜Ÿçš„é¡ºåºä¸åŒ
         // System.out.println(q);
         // while(!q.isEmpty())
         //     System.out.print(q.poll()+" ");
         // System.out.println();
 
-        /** MapÊµÑé */
+        /** Mapå®éªŒ */
         // Map<Node, Integer> map = null;
-        // Ä¬ÈÏHashMap ÓÅ»¯ĞÔÄÜ(ÏÈ±È½ÏhashCode£¬ÈôÏàÍ¬±È½Ïequals)
+        // é»˜è®¤HashMap ä¼˜åŒ–æ€§èƒ½(å…ˆæ¯”è¾ƒhashCodeï¼Œè‹¥ç›¸åŒæ¯”è¾ƒequals)
         // map = new HashMap<Node, Integer>();
-        // ±£Ö¤ĞÔÄÜ£¬Í¬Ê±±£Ö¤²åÈëË³Ğò£¬µü´úËÙ¶È¸ü¿ì
+        // ä¿è¯æ€§èƒ½ï¼ŒåŒæ—¶ä¿è¯æ’å…¥é¡ºåºï¼Œè¿­ä»£é€Ÿåº¦æ›´å¿«
         // map = new LinkedHashMap<>();
-        // ºìºÚÊ÷ÊµÏÖ£¬±£Ö¤¼üÅÅĞò
+        // çº¢é»‘æ ‘å®ç°ï¼Œä¿è¯é”®æ’åº
         // map = new TreeMap<>();
-        // WeakHashMap - ³ıÓ³ÉäÍâÎŞÒıÓÃÖ¸Ïò¼ü£¬¼ü¿É±»À¬»ø»ØÊÕ
-        // ConcurrentHashMap - Ïß³Ì°²È«µÄÓ³Éä
-        // IdentityHashMap - Ê¹ÓÃ==´úÌæequals()±È½Ï¼ü
+        // WeakHashMap - é™¤æ˜ å°„å¤–æ— å¼•ç”¨æŒ‡å‘é”®ï¼Œé”®å¯è¢«åƒåœ¾å›æ”¶
+        // ConcurrentHashMap - çº¿ç¨‹å®‰å…¨çš„æ˜ å°„
+        // IdentityHashMap - ä½¿ç”¨==ä»£æ›¿equals()æ¯”è¾ƒé”®
         // map.put(new Node(44, 12), 44);
         // map.put(new Node(44, 13), 34);
         // map.put(new Node(64, 14), 64);
@@ -55,8 +55,8 @@ public class D0713 {
         // System.out.println(map);
 
         /**
-         * == ±È½ÏµÄÊÇ ÒıÓÃµØÖ·ÊÇ·ñÏàÍ¬
-         * equals ¿´equalsµÄ·µ»ØÖµÁË
+         * == æ¯”è¾ƒçš„æ˜¯ å¼•ç”¨åœ°å€æ˜¯å¦ç›¸åŒ
+         * equals çœ‹equalsçš„è¿”å›å€¼äº†
          */
         // Node n1 = new Node(1);
         // Node n2 = new Node(2);
@@ -65,12 +65,12 @@ public class D0713 {
         // System.out.println(n1 == n2);
         // System.out.println(n1.equals(n2));
 
-        /** contains ·½·¨Ê¹ÓÃÁËindexOf indexOf ÓÃµÄequalsÒÀ´Î±È½Ï */
+        /** contains æ–¹æ³•ä½¿ç”¨äº†indexOf indexOf ç”¨çš„equalsä¾æ¬¡æ¯”è¾ƒ */
         // List<Node> list = new ArrayList<Node>(10);
         // list.add(new Node(2));
         // System.out.println(list.contains(new Node(1)));
 
-        /** Éú³ÉhashCode³£ÓÃ·½·¨ */
+        /** ç”ŸæˆhashCodeå¸¸ç”¨æ–¹æ³• */
         // int code;
         // // boolean
         // boolean f1 = true; 
@@ -89,7 +89,7 @@ public class D0713 {
         // long tmp = Double.doubleToLongBits(f5);
         // code = (int)(tmp ^ (tmp >>> 32));
         
-        /** ÈİÆ÷ÅÅĞò */
+        /** å®¹å™¨æ’åº */
         // List<Node> list = new ArrayList<Node>(10);
         // list.addAll(Arrays.asList(new Node[]{new Node(8), new Node(4), new Node(12), new Node(3), new Node(5), new Node(2)}));
         // System.out.println(list);
@@ -98,7 +98,7 @@ public class D0713 {
         // Collections.sort(list, new ReverseComparator());
         // System.out.println(list);
 
-        /** ²âÊÔÏß³Ì°²È« */
+        /** æµ‹è¯•çº¿ç¨‹å®‰å…¨ */
         // List<Node> list = Collections.synchronizedList(new ArrayList<Node>());
         // List<Node>  list = new ArrayList<Node>();
         // boolean[] res = new boolean[5];
@@ -125,7 +125,7 @@ public class D0713 {
 
         /** I/O */
         // Test File.class
-        // ÎÄ¼şÃû¹ıÂËÆ÷
+        // æ–‡ä»¶åè¿‡æ»¤å™¨
         // class DirFilter implements FilenameFilter {
         //     @Override
         //     public boolean accept(File dir, String name) {
@@ -147,15 +147,15 @@ public class D0713 {
         //     System.out.println("-"+f.getName());
 
         /**
-         * »º³åÊäÈëÎÄ¼ş
-         * ´ò¿ªÒ»¸öÎÄ¼şÓÃÓÚ×Ö·ûÊäÈë£¬¿ÉÒÔÊ¹ÓÃ FileInputReader
-         * Ìá¸ßËÙ¶ÈÊ¹ÓÃ BufferReader
+         * ç¼“å†²è¾“å…¥æ–‡ä»¶
+         * æ‰“å¼€ä¸€ä¸ªæ–‡ä»¶ç”¨äºå­—ç¬¦è¾“å…¥ï¼Œå¯ä»¥ä½¿ç”¨ FileInputReader
+         * æé«˜é€Ÿåº¦ä½¿ç”¨ BufferReader
          */
         // BufferedReader bfr = new BufferedReader(new FileReader(new File(".")));
         // bfr.readLine();
 
         /**
-         * »º³åÊä³öÎÄ¼ş
+         * ç¼“å†²è¾“å‡ºæ–‡ä»¶
          */
         // BufferedWriter bfw = new BufferedWriter(new FileWriter(new File(".")));
         // bfw.write("this is output content...");
