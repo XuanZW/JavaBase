@@ -16,7 +16,7 @@ public class D0715 {
 
     public static void main(String[] args) throws IOException {
         /**
-         * Ê¹ÓÃÓ³ÉäµÄ·½Ê½¶ÁĞ´´óÎÄ¼ş£¬ËÙ¶ÈĞÔÄÜ¸ü¸ß
+         * ä½¿ç”¨æ˜ å°„é€Ÿåº¦æ›´å¿«ã€ä¸ç”¨åŠ è½½å…¨éƒ¨æ–‡ä»¶å³å¯è¯»å–ä¿®æ”¹æ–‡ä»¶
          */
         // RandomAccessFile raf = new RandomAccessFile("./test.tmp", "rw");
         // FileChannel fc = raf.getChannel();
@@ -37,39 +37,46 @@ public class D0715 {
 
 
         /**
-         * ÎÄ¼şÑ¹Ëõ - GZIP
+         * æ–‡ä»¶å‹ç¼© - GZIP
          */
-        // Ğ´ÈëÑ¹ËõÎÄ¼ş
+        // å†™å…¥
         // writeGZIP(new File("test.tmp"), new File("test.gz"));
-        // ¶ÁÈ¡Ñ¹ËõÎÄ¼ş
+        // è¯»å–
         // readGZIP(new File("test.gz"));
 
         /**
-         * ÎÄ¼şÑ¹Ëõ - ZIP
+         * æ–‡ä»¶å‹ç¼© - ZIP
          */
-        // Ğ´Èë
-        writeZip(new File("test.zip"), new File[]{new File("c1.txt"), new File("c2.txt")});
-        // ÌáÈ¡
-        readZip(new File("test.zip"));
+        // å†™å…¥
+        // writeZip(new File("test.zip"), new File[]{new File("c1.txt"), new File("c2.txt")});
+        // æå–
+        // readZip(new File("test.zip"));
+
+        /**
+         * æšä¸¾æµ‹è¯•
+         */
+        // for(Signal s: Signal.values()) {
+        //     System.out.println(s);
+        // }
     }
 
     /**
-     * ÎÄ¼şÑ¹Ëõ - GZIP Ğ´ÈëÑ¹ËõÎÄ¼ş
+     * æ–‡ä»¶å‹ç¼© - GZIP å†™å…¥å‹ç¼©æ–‡ä»¶
      */
     public static void writeGZIP(File inputFile, File outputFile) throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(inputFile));
         BufferedOutputStream out = new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(outputFile)));
-        System.out.println("¿ªÊ¼Ñ¹Ëõ");
+        System.out.println("å¼€å§‹å‹ç¼©");
         int c;
         while((c = in.read()) != -1)
             out.write(c);
-        System.out.println("Ñ¹ËõÍê³É");
+        System.out.println("å‹ç¼©å®Œæˆ");
         in.close();
         out.close();
     }
 
     /**
-     * ÎÄ¼şÑ¹Ëõ - GZIP ¶ÁÈ¡Ñ¹ËõÎÄ¼ş
+     * æ–‡ä»¶å‹ç¼© - GZIP è¯»å–å‹ç¼©æ–‡ä»¶
      */
     public static void readGZIP(File inputFile) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(inputFile))));
@@ -80,7 +87,7 @@ public class D0715 {
     }
 
     /**
-     * ÎÄ¼şÑ¹Ëõ - Zip Ğ´Èë
+     * æ–‡ä»¶å‹ç¼© - Zip å†™å…¥
      */
     public static void writeZip(File zipFile, File[] files) throws IOException {
         FileOutputStream f = new FileOutputStream(zipFile);
@@ -89,7 +96,7 @@ public class D0715 {
         BufferedOutputStream out = new BufferedOutputStream(zos);
         BufferedReader in = null;
         int c;
-        zos.setComment("Java Ê¹ÓÃZipÑ¹Ëõ¶àÎÄ¼ş²âÊÔ");
+        zos.setComment("Java ä½¿ç”¨Zipå‹ç¼©å¤šæ–‡ä»¶æµ‹è¯•");
         for(File file: files) {
             in = new BufferedReader(new FileReader(file));
             zos.putNextEntry(new ZipEntry(file.getName()));
@@ -99,13 +106,13 @@ public class D0715 {
             out.flush();
         }
         out.close();
-        System.out.println("Ñ¹ËõÍê³É");
-        // ÔÚÎÄ¼ş¹Ø±Õºó»ñÈ¡Ğ£ÑéÎÄ¼şµÄĞ£ÑéºÍ
+        System.out.println("å‹ç¼©å®Œæˆ");
+        // åœ¨æ–‡ä»¶å…³é—­åè·å–æ ¡éªŒæ–‡ä»¶çš„æ ¡éªŒå’Œ
         System.out.println("Checksum: " + csum.getChecksum().getValue());
     }
 
     /**
-     * ÎÄ¼şÑ¹Ëõ - Zip ÌáÈ¡ÎÄ¼ş
+     * æ–‡ä»¶å‹ç¼© - Zip æå–æ–‡ä»¶
      */
     public static void readZip(File zipFile) throws IOException {
         FileInputStream fis = new FileInputStream(zipFile);
@@ -122,15 +129,15 @@ public class D0715 {
             while((len = bis.read(bytes)) != -1) {
                 sb.append(new String(bytes, 0, len));   
             }
-            // ×ª»»Îª×Ö·û´®²¢Êä³ö
+            // è½¬æ¢ä¸ºå­—ç¬¦ä¸²å¹¶è¾“å‡º
             System.out.println(sb.toString());
         }
         bis.close();
-        // ÔÚÎÄ¼ş¹Ø±Õºó»ñÈ¡Ğ£ÑéÎÄ¼şµÄĞ£ÑéºÍ
+        // åœ¨æ–‡ä»¶å…³é—­åè·å–æ ¡éªŒæ–‡ä»¶çš„æ ¡éªŒå’Œ
         System.out.println("Checksum: " + csumi.getChecksum().getValue());
         System.out.println("---------------------------");
 
-        // »ñÈ¡ZipÎÄ¼şµÄÁíÒ»ÖÖ·½Ê½
+        // è·å–Zipæ–‡ä»¶çš„å¦ä¸€ç§æ–¹å¼
         ZipFile zf = new ZipFile("test.zip");
         Enumeration e = zf.entries();
         while(e.hasMoreElements()) {
@@ -138,5 +145,33 @@ public class D0715 {
             System.out.println("File: " + ze2);
         }
     }
+
+}
+
+enum Signal {
+    GREEN(2001, "aa"),
+    YELLOW(2002, "bb"),
+    RED(2003, "cc");
+
+    private int state;
+    private String description;
+    private Signal(int state, String description) {
+        this.state = state;
+        this.description = description;
+    }
+    public int getValue() {
+        return this.state;
+    }
+    public String getDescription() {
+        return this.description;
+    }
+    @Override
+    public String toString() {
+        return this.name()+" - "+this.state+"("+description+")";
+    }
+}
+
+
+@interface Test {
 
 }
