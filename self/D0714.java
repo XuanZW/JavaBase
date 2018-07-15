@@ -6,14 +6,14 @@ public class D0714 {
     public static void main(String... args) throws IOException {
 
         /**
-         * DataOutputStream Ğ´ÎÄ¼ş
+         * DataOutputStream å†™æ–‡ä»¶
          */
         // DataOutputStream dos = new DataOutputStream(new FileOutputStream(new File("./test.dat")));
-        // dos.writeUTF("ÒÔUTF-8µÄ·½Ê½±£´æÊı¾İ£¬ºöÂÔÆ½Ì¨¶ÔÎÄ¼şµÄÓ°Ïì");
+        // dos.writeUTF("ä»¥UTF-8çš„æ–¹å¼ä¿å­˜æ•°æ®ï¼Œå¿½ç•¥å¹³å°å¯¹æ–‡ä»¶çš„å½±å“");
         // dos.close();
 
         /**
-         * DataInputStream ¶ÁÎÄ¼ş
+         * DataInputStream è¯»æ–‡ä»¶
          */
         // DataInputStream dis = new DataInputStream(new FileInputStream(new File("./test.dat")));
         // String str = dis.readUTF();
@@ -21,7 +21,7 @@ public class D0714 {
         // System.out.println(str);
 
         /**
-         * ¶ÁĞ´Ëæ»ú·ÃÎÊÎÄ¼ş
+         * è¯»å†™éšæœºè®¿é—®æ–‡ä»¶
          */
         // RandomAccessFile raf = new RandomAccessFile(new File("./test.dat"), "rw");
         // raf.seek(raf.length()-Integer.parseInt(args[0]));
@@ -30,7 +30,7 @@ public class D0714 {
         // raf.close();
 
         /**
-         * StringBuilder ºÍ StringBuffer Ïß³Ì°²È«ĞÔ±È½Ï
+         * StringBuilder å’Œ StringBuffer çº¿ç¨‹å®‰å…¨æ€§æ¯”è¾ƒ
          */
         // for(int i=0; i<5; i++) {
         //     new Thread() {
@@ -109,9 +109,9 @@ public class D0714 {
 
 
         /**
-         * ÌáÉıI/OËÙ¶È£¬Ê¹ÓÃÍ¨µÀ(FileChanner)ºÍ»º³åÆ÷(ByteBuffer)
-         * Î¨Ò»Ö±½ÓÓëÍ¨µÀ½»»¥µÄ»º³åÆ÷ÊÇByteBuffer
-         * I/OÀà¿âÖĞÓĞÈı¸öÀà¿ÉÓÃÓÚ²úÉúÍ¨µÀ£¬FileInputStream/FileOutputaStream/RandomAccessFile
+         * æå‡I/Oé€Ÿåº¦ï¼Œä½¿ç”¨é€šé“(FileChanner)å’Œç¼“å†²å™¨(ByteBuffer)
+         * å”¯ä¸€ç›´æ¥ä¸é€šé“äº¤äº’çš„ç¼“å†²å™¨æ˜¯ByteBuffer
+         * I/Oç±»åº“ä¸­æœ‰ä¸‰ä¸ªç±»å¯ç”¨äºäº§ç”Ÿé€šé“ï¼ŒFileInputStream/FileOutputaStream/RandomAccessFile
          */
         // RandomAccessFile raf = new RandomAccessFile(new File("./test.dat"), "rw");
         // FileChannel fc = raf.getChannel();
@@ -122,17 +122,17 @@ public class D0714 {
         // fc.close();
         // raf.close();
         
-        // // ÕâÃ´Íæ£¬FileOutputStream°ÑÎÄ¼şÈ«Çå¿ÕÁË£¬Ê²Ã´Ò²Ã»ÁË£¬²»ÒªÍ¬Ê±´ò¿ªÒ»¸öÎÄ¼ş
+        // // è¿™ä¹ˆç©ï¼ŒFileOutputStreamæŠŠæ–‡ä»¶å…¨æ¸…ç©ºäº†ï¼Œä»€ä¹ˆä¹Ÿæ²¡äº†ï¼Œä¸è¦åŒæ—¶æ‰“å¼€ä¸€ä¸ªæ–‡ä»¶
         // FileInputStream fis = new FileInputStream(new File("./test.dat"));
         // FileOutputStream fos = new FileOutputStream(new File("./test.dat"));
         // FileChannel in = fis.getChannel();
         // FileChannel out = fos.getChannel();
         // ByteBuffer buff = ByteBuffer.allocate(1024);
         // while(in.read(buff) != -1) {
-        //     String content = buff.asCharBuffer().toString(); // ×÷Îª×Ö·û¶ÁÈ¡
-        //     buffer.flip(); // ×¼±¸Ğ´Êı¾İ
+        //     String content = buff.asCharBuffer().toString(); // ä½œä¸ºå­—ç¬¦è¯»å–
+        //     buffer.flip(); // å‡†å¤‡å†™æ•°æ®
         //     out.write(buff);
-        //     buffer.clear(); // Çå¿Õ»º´æÇø£¬×¼±¸¶ÁÊı¾İ
+        //     buffer.clear(); // æ¸…ç©ºç¼“å­˜åŒºï¼Œå‡†å¤‡è¯»æ•°æ®
         // }
         // in.close();
         // out.close();
@@ -143,7 +143,7 @@ public class D0714 {
     }
 
     /**
-     * ´ÓInputStreamÖĞ¶ÁÈ¡×Ö·û´®²¢·µ»Ø
+     * ä»InputStreamä¸­è¯»å–å­—ç¬¦ä¸²å¹¶è¿”å›
      */
     public static String streamToString(InputStream in) throws IOException {
         StringBuilder sb = new StringBuilder();

@@ -1,71 +1,75 @@
-/**
- * 复习JavaSE过程中总结的部分工具方法
- */
-public class Utils {
+import java.io.*;
+import java.nio.*;
+import java.nio.channels.*;
+import java.util.Enumeration;
+import java.util.zip.Adler32;
+import java.util.zip.CheckedInputStream;
+import java.util.zip.CheckedOutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
-    /**
-     * 移动：134、135、136、137、138、139、147、148、150、151、152、157、158、
-     *     159、172、178、182、183、184、187、188、198，
-     * 联通：130、131、132、145、146、155、156、166、171、175、176、185、186，
-     * 电信：133、149、153、173、174、177、180、181、189、199，
-     * 全球星：1349，
-     * 虚拟运营商：170
-     */
-    private static final String PHONE_PATTERN = "^1((3\\d)|(4[5-9])|(5[^4])|(66)|(7[^9])|(8\\d)|(9[8,9]))\\d{8}$";
-    /**
-     * 校验是否是手机号
-     */
-    public static boolean isMobile(CharSequence phone) {
-        return Pattern.matches(PHONE_PATTERN, phone);
+public class D0715 {
+
+    public static void main(String[] args) throws IOException {
+        /**
+         * ʹ��ӳ��ķ�ʽ��д���ļ����ٶ����ܸ���
+         */
+        // RandomAccessFile raf = new RandomAccessFile("./test.tmp", "rw");
+        // FileChannel fc = raf.getChannel();
+        // IntBuffer ib = fc.map(FileChannel.MapMode.READ_WRITE, 0, fc.size()).asIntBuffer();
+        // // ib.allocate(1024);
+        // for(int i=0; i<10; i++) {
+        //     System.out.println("aaaaaaaaaaaaaa");
+        //     ib.put(i);
+        // }
+        // fc.close();
+        // raf.close();
+
+        // FileChannel fc = new RandomAccessFile("/temp.tmp", "rw").getChannel();
+        // IntBuffer ib = fc.map(FileChannel.MapMode.READ_WRITE, 0, fc.size()).asIntBuffer();
+        // for(int i=0; i<10; i++)
+        //     ib.put(i);
+        // fc.close();
+
+
+        /**
+         * �ļ�ѹ�� - GZIP
+         */
+        // д��ѹ���ļ�
+        // writeGZIP(new File("test.tmp"), new File("test.gz"));
+        // ��ȡѹ���ļ�
+        // readGZIP(new File("test.gz"));
+
+        /**
+         * �ļ�ѹ�� - ZIP
+         */
+        // д��
+        writeZip(new File("test.zip"), new File[]{new File("c1.txt"), new File("c2.txt")});
+        // ��ȡ
+        readZip(new File("test.zip"));
     }
 
     /**
-     * 名称和域名只允许英文字母、数字、下划线、以及中划线组成
-     */
-    private static final String EMAIL_PATTERN_1 = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
-    /**
-     * 名称允许汉字、字母、数字，域名只允许英文域名
-     */
-    private static final String EMAIL_PATTERN_2 = "^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
-    /**
-     * 校验是否是邮箱
-     */
-    public static boolean isEmail(CharSequence email) {
-        return Pattern.matches(EMAIL_PATTERN_1, email) || Pattern.matches(EMAIL_PATTERN_2, email);
-    }
-
-    
-    /**
-     * 从InputStream中读取字符串并返回
-     */
-    public static String streamToString(InputStream in) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        byte[] bys = new byte[1024];
-        int len = 0;
-        while((len=in.read(bys)) != -1) {
-            sb.append(new String(bys, 0, len));
-        }
-
-        return sb.toString();
-    }
-
-    /**
-     * 文件压缩 - GZIP 写入压缩文件
+     * �ļ�ѹ�� - GZIP д��ѹ���ļ�
      */
     public static void writeGZIP(File inputFile, File outputFile) throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(inputFile));
         BufferedOutputStream out = new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(outputFile)));
-        System.out.println("开始压缩");
+        System.out.println("��ʼѹ��");
         int c;
         while((c = in.read()) != -1)
             out.write(c);
-        System.out.println("压缩完成");
+        System.out.println("ѹ�����");
         in.close();
         out.close();
     }
 
     /**
-     * 文件压缩 - GZIP 读取压缩文件
+     * �ļ�ѹ�� - GZIP ��ȡѹ���ļ�
      */
     public static void readGZIP(File inputFile) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(inputFile))));
@@ -76,7 +80,7 @@ public class Utils {
     }
 
     /**
-     * 文件压缩 - Zip 写入
+     * �ļ�ѹ�� - Zip д��
      */
     public static void writeZip(File zipFile, File[] files) throws IOException {
         FileOutputStream f = new FileOutputStream(zipFile);
@@ -85,7 +89,7 @@ public class Utils {
         BufferedOutputStream out = new BufferedOutputStream(zos);
         BufferedReader in = null;
         int c;
-        zos.setComment("Java 使用Zip压缩多文件测试");
+        zos.setComment("Java ʹ��Zipѹ�����ļ�����");
         for(File file: files) {
             in = new BufferedReader(new FileReader(file));
             zos.putNextEntry(new ZipEntry(file.getName()));
@@ -95,13 +99,13 @@ public class Utils {
             out.flush();
         }
         out.close();
-        System.out.println("压缩完成");
-        // 在文件关闭后获取校验文件的校验和
+        System.out.println("ѹ�����");
+        // ���ļ��رպ��ȡУ���ļ���У���
         System.out.println("Checksum: " + csum.getChecksum().getValue());
     }
 
     /**
-     * 文件压缩 - Zip 提取文件
+     * �ļ�ѹ�� - Zip ��ȡ�ļ�
      */
     public static void readZip(File zipFile) throws IOException {
         FileInputStream fis = new FileInputStream(zipFile);
@@ -118,15 +122,15 @@ public class Utils {
             while((len = bis.read(bytes)) != -1) {
                 sb.append(new String(bytes, 0, len));   
             }
-            // 转换为字符串并输出
+            // ת��Ϊ�ַ��������
             System.out.println(sb.toString());
         }
         bis.close();
-        // 在文件关闭后获取校验文件的校验和
+        // ���ļ��رպ��ȡУ���ļ���У���
         System.out.println("Checksum: " + csumi.getChecksum().getValue());
         System.out.println("---------------------------");
 
-        // 获取Zip文件的另一种方式
+        // ��ȡZip�ļ�����һ�ַ�ʽ
         ZipFile zf = new ZipFile("test.zip");
         Enumeration e = zf.entries();
         while(e.hasMoreElements()) {
@@ -134,4 +138,5 @@ public class Utils {
             System.out.println("File: " + ze2);
         }
     }
+
 }
