@@ -29,7 +29,7 @@ public class Works {
     }
 
     /**
-     * ¹¹Ôì¶ş²æÊ÷
+     * æ„é€ äºŒå‰æ ‘
      */
     public void constructTree(TreeNode root, Queue<TreeNode> qt) {
         Queue<TreeNode> need = new LinkedList<TreeNode>();
@@ -45,7 +45,7 @@ public class Works {
             tmp.right = qt.poll();
             need.add(tmp.left);
             need.add(tmp.right);
-            // ¸ø×ó¹¹Ôì  ¸øÓÒ¹¹Ôì
+            // ç»™å·¦æ„é€   ç»™å³æ„é€ 
         }
     }
 
@@ -60,7 +60,7 @@ public class Works {
     }
 
     /**
-     * Æ½ºâ¶ş²æÊ÷
+     * å¹³è¡¡äºŒå‰æ ‘
      */
     public boolean isBalanced(TreeNode root) {
         if(root == null)
@@ -82,7 +82,7 @@ public class Works {
     }
 
     /**
-     * ·­×ª¶ş²æÊ÷
+     * ç¿»è½¬äºŒå‰æ ‘
      */
     public TreeNode invertTree(TreeNode root) {
         if(root == null)
