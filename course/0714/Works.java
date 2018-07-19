@@ -20,7 +20,7 @@ public class Works {
             for(int j=i+1; j<arr.length; j++) {
                 for(int k=j+1; k<arr.length; k++) {
                     for(int l=k+1; l<arr.length; l++) {
-                        if(arr[i]+arr[j]+arr[k] == 0) {
+                        if(arr[i]+arr[j]+arr[k]+arr[l] == 0) {
                             int[] tmp = {arr[i], arr[j], arr[k], arr[l]};
                             Arrays.sort(tmp);
                             set.add(new Tuple(tmp[0], tmp[1], tmp[2], tmp[3]));
