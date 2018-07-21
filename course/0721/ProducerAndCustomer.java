@@ -26,14 +26,14 @@ public class ProducerAndCustomer {
         // t1.start();
         // t2.start();
 
-        // try {
-        //     TimeUnit.SECONDS.sleep(5);
-        //     exec1.shutdownNow();
-        //     TimeUnit.SECONDS.sleep(1);
-        //     exec2.shutdownNow();
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
+        try {
+            TimeUnit.SECONDS.sleep(5);
+            exec1.shutdownNow();
+            TimeUnit.SECONDS.sleep(1);
+            exec2.shutdownNow();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
